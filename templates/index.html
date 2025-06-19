@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Brain</title>
+</head>
+<body>
+    <h1>Budget Brain Demo</h1>
+    <form method="post" action="/chat">
+        <input type="text" name="message" placeholder="Type your question..." required>
+        <button type="submit">Send</button>
+    </form>
+    <div>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
