@@ -2,6 +2,8 @@ from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+from utils.reply_logic import generate_reply
+
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
@@ -27,12 +29,7 @@ async def chat(request: Request, message: str = Form(...)):
         except Exception as e:
             reply = f"Sorry, there was an error: {e}"
     else:
-        if "groceries" in message.lower():
-            reply = "Budget Brain: The groceries should be about 15 percent of your budget..please budget wisely."
-        elif "spend" in message.lower():
-            reply = "Budget Brain: You spent $150 this week on groceries."
-        elif "save" in message.lower():
-            reply = "Budget Brain: You saved $200 this week..way to go!"
-        else:
-            reply = "Can you repeat that? I didn't understand your message."
-    return templates.TemplateResponse("index.html", {"request": request, "message": reply})
+        reply = generate_reply(message)
+    return templates.TemplateResponse("index.html", {"request": request, "message": reply})     
+    
+      
