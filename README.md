@@ -7,6 +7,10 @@ A personal finance chatbot demo using FastAPI and an optional (preferred) OPENAI
 - Optional real OPENAI server mode interaction
 - Easy to switch modes for demo, production, or fun use
 
+## Project Structure Update
+- Modular backend logic: Main chat/budget logic moved to utils/reply_logic.py
+- Automated tests: All core logic is now tested in tests/test_reply_logic.py
+
 ## Setup
 1. **Clone the repo:**
 - Copy this into your terminal:
